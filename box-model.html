@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        .last-order {
+            background-color: lightblue;
+        }
+        .first-order {
+            background-color: blueviolet;
+        }       
+        
+        body {
+            text-align: center;
+        }
+
+        div:first-child {
+            color: red;
+        }
+
+        h1:first-of-type {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Headings Are Block Elements</h1>
+
+    <p>Paragraphs are blocks, too. <em>However</em>, &lt;em&gt; and &lt;strong&gt;
+       elements are not. They are <strong>inline</strong> elements.</p>
+
+    <p>Block elements define the flow of the HTML document, while inline elements
+       do not.</p>
+       <div>Button</div>
+
+    <div class="first-order last-order">First Order Div Element</div>
+
+
+    <div class="parent">
+        <div>Child</div> <!-- .parent > :first-of-type -->
+        <div>Child</div>
+        <div>Child</div>
+        <h1>Child</h1>   <!-- .parent > :first-of-type -->
+    </div>
+</body>
+</html>

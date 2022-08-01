@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floats Example</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            overflow: hidden;
+            background-color: #EAEDF0;
+        }
+
+        .page {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .menu {
+            opacity: .7;
+            height: 100px;
+            background-color: #B2D7FF;
+            /* Medium blue */
+        }
+
+        .sidebar {
+            opacity: .7;
+            height: 300px;
+            width: 200px;
+            float: left;
+            /* margin: 0 auto; */
+            background-color: #F09A9D;
+            /* Red */
+        }
+
+        .content {
+            opacity: .7;
+            height: 500px;
+            width: 350px;
+            float: left;
+            background-color: #F5CF8E;
+            /* Yellow */
+        }
+
+        .footer {
+            overflow: hidden;
+            background-color: #D6E9FE;
+            /* Light blue */
+        }
+
+        .footer-item {
+            float: left;
+            width: 31%;
+            margin: 20px 1.15%;
+            height: 160px;
+            background-color: #B2D6FF;    /* Medium blue */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class='page'>
+        <div class='menu'>Menu</div>
+        <div class='sidebar'>Sidebar</div>
+        <div class='content'>Content</div>
+        <div class='footer'>Footer</div>
+    </div> -->
+    <div class='menu'>Menu</div>
+
+    <div class='container'>
+        <div class='page'>
+            <div class='sidebar'>Sidebar</div>
+            <div class='content'>Content</div>
+        </div>
+    </div>
+
+    <div class='footer'>
+        <div class='footer-item'></div>
+        <div class='footer-item'></div>
+        <div class='footer-item'></div>
+        <div class='footer-item'></div>
+  <div class='footer-item'></div>
+  <div class='footer-item'></div>
+      </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: white;
+    background-color: #313131;
+    height: 50px;
+    width: 100%;
+}
+
+span {
+    display: inline-block;
+    width: 33%;
+}
+
+main {
+    background-color: #f2f2f2;
+    height: 1000px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    color: white;
+    background-color: #313131;
+    height: 50px;
+}
+
+.footer-item {
+    display: block;
+    width:100vw;
+}
+
+.nav {
+    position: sticky;
+    top: 0px;
+    display: block;
+    background-color: orange;
+    height: 30px;
+}
+
+
+.big {
+    height: 300px;
+}

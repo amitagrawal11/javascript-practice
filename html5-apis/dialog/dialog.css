@@ -1,0 +1,34 @@
+:root {
+    --dialog-bg-color: #e3f2fd;
+    --light-blue: #90caf9;
+    --active-light-blue: #42a5f5;
+  }
+  
+  button {
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: var(--light-blue);
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background-color: var(--active-light-blue);
+  }
+  
+    dialog {
+    background-color:  var(--dialog-bg-color);
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid beige;
+    border-radius: 10px;
+    
+    -webkit-box-shadow: 5px 5px 5px -5px;
+    -moz-box-shadow: 5px 5px 5px -5px;
+    box-shadow: 5px 5px 5px -5px;
+  }
+  
+  dialog::backdrop {
+    background-color: rgba(0,0,0,0.3);
+  }

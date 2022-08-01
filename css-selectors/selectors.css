@@ -1,0 +1,39 @@
+/* only attribute */
+li[data-label] {
+    color: red;
+}
+
+/* exact value type */
+li[data-label="exact"] {
+    color: blue;
+}
+
+/* anywhere */
+li[data-label*="anywhere"] {
+    color: green;
+}
+
+/* space */
+li[data-label~="space"] {
+    color: purple;
+}
+
+/* start with val and dash afterwards `hello-` */
+li[data-label|="hello"] {
+    background-color: orange;
+    color:white;
+}
+
+/* starts with */
+li[data-label^="startWith"] {
+    color: grey;
+}
+
+/* ends with */
+li[data-label$="endsWith"] {
+    color: black;
+}
+
+a::before {
+    content: "$";
+}
