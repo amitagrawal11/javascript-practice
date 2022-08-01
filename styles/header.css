@@ -1,0 +1,89 @@
+/* Global Variables */
+
+:root {
+    --primary-color: #0B3954;
+    --secondary-color: #2f353d;
+    --black: #2f353d;
+    --white: #f1f1f1;
+}
+
+* {
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+
+    width: 100%;
+    padding: 20px;
+
+    background-color: var(--black);
+    color: var(--white);
+    
+}
+
+.menu > li {
+    display: inline;
+    margin-right: 0 30px;
+}
+
+.menu > li:last-of-type {
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown > span {
+    z-index: 2;
+    position: relative;
+}
+
+.features-menu {
+    visibility: hidden;
+    top:-10px;
+    left:-25px;
+    padding-top:60px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #798E9A;
+    border-radius: 5px;
+    z-index:1;
+}
+
+.features-menu li {
+    padding: 0px 20px 10px 20px;
+    margin: 0px 10px;
+    border-bottom: 1px solid black;
+}
+
+.features-menu li:last-of-type {
+    border-bottom: none;
+  }
+  
+
+.features-menu > li > a {
+    color: black;
+}
+
+.dropdown:hover .features-menu {
+    visibility: visible;
+}
