@@ -1,0 +1,36 @@
+$primary: #00a8ff;
+$secondary: #1ac6ff;
+$error: #d32752;
+$info: #f6c31c;
+$black: black;
+
+:root {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: $primary;
+}
+
+a {
+    color: $secondary;
+}
+
+%button {
+    width: 100px;
+    height: 200px;
+}
+
+.success {
+    @extend %button;
+    background-color: #00a8ff;
+}
+
+.error {
+    @extend %button;
+    background-color: #d32752;
+}
+
+

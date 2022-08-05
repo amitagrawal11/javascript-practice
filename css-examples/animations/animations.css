@@ -1,0 +1,59 @@
+.rectangle {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    display: inline-block;
+
+    animation-name: move;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.circle {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+
+.animation-duration-1s {
+    animation-delay: .3s;
+}
+
+.animation-duration-2s {
+    animation-delay: .4s;
+}
+
+.animation-duration-3s {
+    animation-delay: .5s;
+}
+
+.c-small {
+    width: 10px;
+    height: 10px;
+}
+
+.c-fill {
+    background-color: black;
+
+    animation-name: blink;
+    animation-iteration-count: 5;
+    animation-fill-mode: backwards;
+    animation-direction: alternate;
+    animation-duration: .4s;
+}
+
+@keyframes blink {
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes move {
+    100% {
+        transform: translate(80vw, 82vh);
+    }
+}

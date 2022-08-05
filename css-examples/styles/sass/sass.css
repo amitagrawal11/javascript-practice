@@ -1,0 +1,26 @@
+:root {
+  margin: 0px auto;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #00a8ff;
+}
+
+a {
+  color: #1ac6ff;
+}
+
+.error, .success {
+  width: 100px;
+  height: 200px;
+}
+
+.success {
+  background-color: #00a8ff;
+}
+
+.error {
+  background-color: #d32752;
+}/*# sourceMappingURL=sass.css.map */

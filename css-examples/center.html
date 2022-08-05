@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Element</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .g-box {
+            display: grid;
+            place-items: center;
+        }
+
+        .f-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .normal-div {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .absolute {
+            position: relative;
+        }
+
+        .absolute p {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+
+        .m-box {
+            display: grid;
+        }
+
+        .m-box p {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box absolute">
+        <p>Absolute Content</p>
+    </div>
+
+    <div class="box normal-div">
+        <p>
+            Normal Div
+        </p>
+    </div>
+
+    <div class="box g-box">
+        <span>Grid Box</span>
+    </div>
+
+    <div class="box f-box">
+        <span>Flex Box</span>
+    </div>
+
+    <div class="box m-box">
+        <p>Margin Content</p>
+    </div>
+</body>
+
+</html>
