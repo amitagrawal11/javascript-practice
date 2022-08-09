@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifiers</title>
+    <script>
+        function handleInputChange(e) {
+            console.log('onchange method called');
+            const modifiers = e.getModifierState('CapsLock');
+            console.log('modifiers: ', modifiers);
+        }
+    </script>
+</head>
+
+<body>
+    Name: <input type="text" onmousedown="handleInputChange(event)" />
+
+</body>
+
+</html>

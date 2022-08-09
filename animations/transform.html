@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Example</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            position: absolute;
+        }
+
+        .old {
+            border: 1px dashed red;
+            transform: translate(100%, 100%);
+        }
+
+        .new {
+            border: 1px dashed blueviolet;
+            top: 10px;
+            left: 10px;
+            opacity: .5;
+            transform: translate(100px, 100px) scale(2);
+        }
+
+        .container {
+            width: 100vmin;
+            height: 500px;
+            background-color: lightgray;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box old"></div>
+        <div class="box new"></div>
+    </div>
+</body>
+
+</html>

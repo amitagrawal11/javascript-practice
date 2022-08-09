@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Examples</title>
+    <script>
+        if (typeof (Worker) !== "undefined") {
+            if (typeof (w) == "undefined") {
+                w = new Worker("javascripts/workers.js");
+            }
+            w.onmessage = function (event) {
+                console.log('event received: ', event);
+                document.getElementById("root").innerHTML = event.data;
+            };
+
+            setTimeout(() => {
+                console.log('terminating worker');
+                w.terminate();
+            }, 5000);
+        } else {
+            document.getElementById("root").innerHTML = "Sorry! No Web Worker support.";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="root">
+        Hello Web Worker
+    </div>
+</body>
+
+</html>
