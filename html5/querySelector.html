@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuerySelector Implementation</title>
+    <script>
+        function isMatches(node, selector) {
+            if (node.matches) { // for browsers that supports Element.prototype.matches()
+                return node.matches(selector);
+            } else { // for old browsers 
+                // calling the native methods if matches is not supported by the browser 
+                var matches = Element.prototype.matchesSelector ||
+                    Element.prototype.mozMatchesSelector ||
+                    Element.prototype.msMatchesSelector ||
+                    Element.prototype.oMatchesSelector ||
+                    Element.prototype.webkitMatchesSelector;
+                return matches.call(node, selector);
+            }
+        }
+
+        const customSelector = function (selector) {
+            let result = null;
+            function traverse(node) {
+                if (!node) {
+                    return;
+                }
+                if (isMatches(node, selector) && !result) {
+                    result = node;
+                    return;
+                }
+                for (let child of node.children) {
+                    console.log('child: ', child);
+                    traverse(child);
+                }
+            }
+            traverse(document.body);
+
+            return result;
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded');
+            const result = document.querySelector("ul>li");
+            const newResult = customSelector("ul>li");
+            console.log('legacy selector result: ', result);
+            console.log('new selector result: ', newResult);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Some Heading</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ul>
+    </div>
+</body>
+
+</html>

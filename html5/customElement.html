@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Element</title>
+</head>
+
+<body>
+    <h2>Word Count - Custom Element</h2>
+    <user-card name="Amit Agrawal" img-src="https://randomuser.me/api/portraits/men/10.jpg" email="test@test.com"
+        phone="333-333-3333">
+    </user-card>
+    <user-card name="Hina Agrawal" img-src="https://randomuser.me/api/portraits/women/10.jpg" email="test@test.com"
+        phone="333-333-3333">
+    </user-card>
+
+    <script defer>
+        const template = document.createElement('template');
+
+        template.innerHTML = `
+            <style>
+                .card  {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    gap: 10px;
+                    width: 400px;
+                    background-color: lightgray;
+                    border-bottom: 5px solid slateblue;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    margin: 0px;
+                }
+
+                button {
+                    margin-top: 10px;
+                    background-color: slateblue;
+                    color: white;
+                }
+
+                img { 
+                    height: 150px;
+                    border-radius: 5px 0px 0px 5px;
+                }
+            </style>
+            <div class="card">
+                <img />
+                <div class="card__body">
+                    <h3 class="card__heading">Username</h3>
+                    <p class="card__email">Email</p>
+                    <p class="card__phone">Phone no</p>
+                    <button id="card--btn">Hide Info</button>
+                </div>
+            </div>
+        `;
+
+        class UserCard extends HTMLElement {
+            constructor() {
+                super();
+                this.isHidden = false;
+                this.attachShadow({ mode: "open" });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+                // fetching attribute values
+                const imgSrc = this.getAttribute('img-src');
+                const username = this.getAttribute('name');
+                const email = this.getAttribute('email');
+                const phone = this.getAttribute('phone');
+
+                // setting attribute values
+                this.shadowRoot.querySelector("img").src = imgSrc;
+                this.shadowRoot.querySelector(".card__heading").innerText = username;
+                this.shadowRoot.querySelector(".card__email").innerText = email;
+                this.shadowRoot.querySelector(".card__phone").innerText = phone;
+
+            }
+
+            connectedCallback() {
+                const email = this.shadowRoot.querySelector(".card__email");
+                const phone = this.shadowRoot.querySelector(".card__phone");
+                const btn = this.shadowRoot.querySelector("#card--btn");
+
+                // attaching events 
+                this.shadowRoot.querySelector("#card--btn").addEventListener("click", function (e) {
+                    if (this.isHidden) {
+                        email.style.visibility = "hidden";
+                        phone.style.visibility = "hidden";
+                        btn.innerText = "Show Info";
+                    } else {
+                        email.style.visibility = "visible";
+                        phone.style.visibility = "visible";
+                        btn.innerText = "Hide Info";
+                    }
+                    this.isHidden = !this.isHidden;
+                });
+            }
+
+            disconnectedCallback() {
+                console.log('will be called when element is removed from DOM');
+            }
+        }
+
+        window.customElements.define('user-card', UserCard);
+    </script>
+
+</html>

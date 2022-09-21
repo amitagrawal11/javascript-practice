@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Example</title>
+    <style>
+        * {
+            margin: 0px auto;
+            padding: 0px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        body {
+            background-color: slateblue;
+            color: white;
+        }
+
+        p {
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        .overlay {
+            display: none;
+            position: absolute;
+            width: 200px;
+            padding: .5rem;
+            border-radius: 0.2rem;
+            color: slateblue;
+            background-color: white;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background-color: white;
+            color: slateblue;
+        }
+
+        .btn.overlay {}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam iste dolorum a. Laudantium aspernatur
+            hic expedita officia quos neque aliquam similique veritatis itaque maxime, consequuntur culpa natus? Dicta,
+            libero porro.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam iste dolorum a. Laudantium aspernatur
+            hic expedita officia quos neque aliquam similique veritatis itaque maxime, consequuntur culpa natus? Dicta,
+            libero porro.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam iste dolorum a. Laudantium aspernatur
+            hic expedita officia quos neque aliquam similique veritatis itaque maxime, consequuntur culpa natus? Dicta,
+            libero porro.</p>
+        <p class="last">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam iste dolorum a. Laudantium
+            aspernatur
+            hic expedita officia quos neque aliquam similique veritatis itaque maxime, consequuntur culpa natus? Dicta,
+            libero porro.</p>
+    </div>
+
+    <div class="overlay">
+        <button class="btn btn-overlay">Add</button>
+        <button class="btn btn-overlay">Delete</button>
+    </div>
+    <script>
+        const divs = document.getElementsByTagName("p");
+        const overlay = document.querySelector(".overlay");
+
+        const handleHover = function (e) {
+            e.preventDefault();
+            const positions = e.target.getBoundingClientRect();
+            console.log(e);
+            overlay.classList.add('show');
+
+            if (positions.top === 0) {
+                overlay.style.top = positions.top + 36 + 'px';
+            } else {
+                overlay.style.top = positions.top - 36 + 'px';
+            }
+            overlay.style.left = 1 + 'rem';
+        };
+
+        const handleMouseLeave = function (e) {
+            e.preventDefault();
+            overlay.classList.remove('show');
+            console.log('mouse leave called: ');
+        }
+
+        Array.from(divs).forEach((div, index) => {
+            div.addEventListener("mouseover", handleHover);
+            div.addEventListener("mouseleave", handleMouseLeave);
+        });
+        overlay.addEventListener("mouseover", function (e) {
+            overlay.classList.add('show');
+        });
+
+        console.log('saved changes');
+    </script>
+</body>
+
+</html>

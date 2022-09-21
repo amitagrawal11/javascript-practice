@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce Example</title>
+</head>
+
+<body>
+    Type Anything: <input id="inputBox" />
+    <script>
+
+        const debounce = function (fn, delay = 300) {
+            let timerId = 0;
+            return function (...args) {
+                clearTimeout(timerId);
+                timerId = setTimeout(() => {
+                    fn.apply(this, args);
+                }, delay);
+            }
+        }
+
+        const throttle = function (fn, delay = 300) {
+            let timerId = 0;
+            return function (...args) {
+                if (!timerId) {
+                    console.log('calling function ', timerId);
+                    timerId = setTimeout(() => {
+                        fn.apply(this, args);
+
+                        console.log('clearing out timer : ', timerId);
+                        timerId = null;
+                    }, delay);
+                }
+            };
+        }
+
+        const handleInputChange = function (e) {
+            console.log('event : ', e.target.value);
+        };
+
+        const debouncedInput = debounce(handleInputChange, 300);
+        const throttledInput = throttle(handleInputChange, 2000);
+
+        const inputBox = document.getElementById("inputBox");
+
+        inputBox.addEventListener('input', throttledInput);
+    </script>
+</body>
+
+</html>

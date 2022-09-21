@@ -1,0 +1,18 @@
+{
+  "name": "canvas-draw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "canvas-draw.server.js",
+  "scripts": {
+    "start": "nodemon canvas-draw.server.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "http": "^0.0.1-security",
+    "socket.io": "^4.5.2"
+  }
+}

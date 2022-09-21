@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./canvas-draw.css" type="text/css" media="screen" />
+    <title>Canvas Draw</title>
+</head>
+
+<body>
+    <div id="canvasTools" class="canvas-tools">
+        <button data-type="select">Select</button>
+        <button data-type="square">Square</button>
+        <button data-type="circle">Circle</button>
+        <button data-type="line">Line</button>
+        <button data-type="text">Text</button>
+        <!-- <button data-type="multi-user">Multi User</button> -->
+        <button data-type="export">Export</button>
+    </div>
+    <section class="zoom-btns">
+        <button id="zoomIn">Zoom In</button>
+        <button id="zoomOut">Zoom Out</button>
+    </section>
+    <main>
+        <canvas id="canvas"></canvas>
+    </main>
+    <!-- <script src="./socket.io.min.js"></script> -->
+    <script src="./canvas-shapes.js"></script>
+    <script src="./canvas-draw.js"></script>
+</body>
+
+</html>

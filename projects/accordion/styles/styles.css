@@ -1,0 +1,59 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+.accordion {
+  margin: 5rem;
+  width: 18rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+.accordion > .accordion__item:first-child > button {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.accordion > .accordion__item:last-child > button {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.accordion__item > button {
+  position: relative;
+  width: 100%;
+  border: none;
+  background-color: teal;
+  color: white;
+  text-align: left;
+  padding: 0rem 1rem;
+  height: 2.5rem;
+}
+.accordion__item > button:hover {
+  background-color: #015a5a;
+}
+.accordion__item > button::after {
+  content: "\f078";
+  position: absolute;
+  font-family: fontawesome;
+  right: 1rem;
+  transform: rotate(-90deg);
+  transition: transform 1s ease;
+}
+.accordion__item > p {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 1s ease;
+}
+.accordion__item--active > p {
+  border: 1px solid silver;
+  padding: 1rem;
+  transition: max-height 0.5s ease, padding 1s ease;
+  max-height: 100vh;
+}
+.accordion__item--active > button::after {
+  transform: rotate(0deg);
+  transition: transform 1s ease;
+}/*# sourceMappingURL=styles.css.map */

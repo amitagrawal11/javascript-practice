@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+.accordion {
+    margin: 5rem;
+    width: 18rem;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.25);
+
+    &>.accordion__item:first-child>button {
+        border-radius: .5rem .5rem 0 0;
+    }
+
+    &>.accordion__item:last-child>button {
+        border-radius: 0 0 .5rem .5rem;
+    }
+}
+
+.accordion__item {
+    &>button {
+        position: relative;
+        width: 100%;
+        border: none;
+        background-color: teal;
+        color: white;
+        text-align: left;
+        padding: 0rem 1rem;
+        height: 2.5rem;
+
+        &:hover {
+            background-color: #015a5a;
+        }
+
+        &::after {
+            content: "\f078";
+            position: absolute;
+            font-family: fontawesome;
+            right: 1rem;
+            transform: rotate(-90deg);
+            transition: transform 1s ease;
+        }
+    }
+
+    &>p {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height .5s ease, padding 1s ease;
+    }
+
+    &--active {
+        &>p {
+            border: 1px solid silver;
+            padding: 1rem;
+            transition: max-height .5s ease, padding 1s ease;
+            max-height: 100vh;
+        }
+
+        &>button::after {
+            transform: rotate(0deg);
+            transition: transform 1s ease;
+        }
+    }
+}

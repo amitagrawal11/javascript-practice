@@ -36,3 +36,62 @@ if (!window.NJSON) {
         })()
     };
 }
+
+/* Custom Enhanced Stringify function*/
+function stringifyV2(value) {
+    if (value === null) {
+        return 'null';
+    } else if (typeof value === 'number') {
+        return isFinite(value) ? value.toString() : 'null';
+    } else if (typeof value === 'string') {
+        return value.toString();
+    } else if (value.constructor === Array) {
+        var res = '[';
+        for (var i = 0; i < value.length; i++)
+            res += (i ? ', ' : '') + stringify(value[i]);
+        return res + ']';
+    } else if (typeof value === '') {
+        var tmp = [];
+        for (var k in value) {
+            if (value.hasOwnProperty(k))
+                tmp.push(stringify(k) + ': ' + stringify(value[k]));
+        }
+        return '{' + tmp.join(', ') + '}';
+    }
+}
+
+
+/* Custom Stringify function*/
+function stringify(obj) {
+    // Step 1: handle primitive types
+    if (typeof obj === "string") {
+        return `"${obj}"`;
+    }
+    if (typeof obj === "number" || typeof obj === "boolean") {
+        return "${obj}";
+    }
+
+    // Step 2: handle arrays
+    if (obj.constructor === Array) {     // since old browsers does not support isArray()
+        let result = `"["`;
+        for (let i = 0; i < obj.length; i++) {
+            result += `"${stringify(obj[i])}", `;
+        }
+        // remove extra comma from end of result
+        result = result.substring(0, result.length - 2) + `"]"`;
+        return result;
+    }
+
+    // Step 3: handle object
+    if (typeof obj === "object" && typeof obj !== null) {
+        let result = `"{"`;
+        const objectKeys = Object.keys(obj);
+        for (let i = 0; i < objectKeys.length; i++) {
+            const key = objectKeys[i];
+            result += `"${key}":"${stringify(obj[key])}", `;
+        }
+        // remove extra comma from end of result
+        result = result.substring(0, result.length - 2) + `"}"`;
+        return result;
+    }
+}

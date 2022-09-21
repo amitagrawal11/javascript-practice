@@ -1,0 +1,41 @@
+@keyframes backgroundSlideIn {
+    from {
+        flex: 0;
+    }
+
+    to {
+        flex: 2;
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(85deg);
+    }
+
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        height: 1vh;
+    }
+
+    100% {
+        height: 22vh;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

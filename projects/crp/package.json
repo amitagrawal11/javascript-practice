@@ -1,0 +1,16 @@
+{
+  "name": "crp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "crp.server.js",
+  "scripts": {
+    "start": "nodemon crp.server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}

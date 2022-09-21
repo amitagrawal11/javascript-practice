@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference between display, visibility, opacity</title>
+    <style>
+        .displayBox {
+            background-color: green;
+            outline: green;
+            border: 1px solid green;
+            display: none;
+        }
+
+        .visibilityBox {
+            background-color: blueviolet;
+            outline: blueviolet;
+            border: 1px solid blueviolet;
+            visibility: hidden;
+        }
+
+        .opacityBox {
+            background-color: tomato;
+            outline: tomato;
+            border: 1px solid tomato;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Difference between display, visibility, opacity</h1>
+
+    <div id="displayBox" class="displayBox" tabindex="1">Box1 - Display None
+        <ul>
+            <li>Child 1</li>
+            <li>Child 2</li>
+        </ul>
+    </div>
+    <div id="visibilityBox" class="visibilityBox" tabindex="2">Box2 - Visibility Hidden
+        <ul>
+            <li>Child 1</li>
+            <li>Child 2</li>
+        </ul>
+    </div>
+    <div id="opacityBox" class="opacityBox" tabindex="3">Box3 - Opacity 0
+        <ul>
+            <li>Child 1</li>
+            <li>Child 2</li>
+        </ul>
+    </div>
+    <button id="testBtn">Test TabIndex</button>
+    <script>
+        window.addEventListener("DOMContentLoaded", function (event) {
+            const displayBox = document.getElementById("displayBox");
+            const opacityBox = document.getElementById("opacityBox");
+            const visibilityBox = document.getElementById("visibilityBox");
+
+            // Events
+            displayBox.addEventListener("click", function (event) {
+                console.log("Display box clicked with event: ", event);
+            });
+            opacityBox.addEventListener("click", function (event) {
+                console.log("Opacity box clicked with event: ", event);
+            });
+            visibilityBox.addEventListener("click", function (event) {
+                console.log("Visibility box clicked with event: ", event);
+            });
+
+
+            console.log("Display box dimensions: ", displayBox.getBoundingClientRect());
+            console.log("Opacity box dimensions: ", opacityBox.getBoundingClientRect());
+            console.log("Visibility box dimensions: ", visibilityBox.getBoundingClientRect());
+        });
+    </script>
+</body>
+
+</html>

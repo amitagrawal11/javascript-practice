@@ -1,0 +1,120 @@
+:root {
+    --black-color: black;
+    --white-color: white;
+    --font-color: black;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-weight: 400;
+    color: var(--font-color);
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+}
+
+.background {
+    z-index: 1;
+    display: flex;
+    height: inherit;
+}
+
+.background__left {
+    flex: 2;
+    background-color: var(--black-color);
+    animation: backgroundSlideIn 2s ease-in-out;
+}
+
+.background__right {
+    flex: 3;
+    background-color: var(--white-color);
+}
+
+.profile__container {
+    position: absolute;
+    z-index: 2;
+    height: inherit;
+    width: inherit;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 800;
+    padding-bottom: 10px;
+    font-size: 4rem;
+}
+
+h3 {
+    padding-bottom: 20px;
+    font-size: 2rem;
+}
+
+.profile__container {
+    
+}
+
+.profile__details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.profile__details__box {
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.profile__details__seperator {
+    margin: 0px 5rem;
+    height: 22vh;
+    width: 5px;
+    border-radius: .4rem;
+    background-color: var(--black-color);
+    animation: slideInFromTop 1s ease-in-out;
+}
+
+.btn {
+    font-weight: bold;
+    border: 3px solid var(--black-color);
+    background-color: inherit;
+    padding: .75rem 2.5rem;
+    margin-right: 1.5rem;
+}
+
+.btn-filled {
+    color: var(--white-color);
+    background-color: var(--black-color);
+}
+
+.btn-outlined {
+    transition: background-color .5s ease-in-out, color .5s ease-in-out, box-shadow .5s ease;
+}
+
+.mt-sm {
+    margin-top: 1.5rem;
+}
+
+img {
+    animation: flip 2s ease;
+    box-shadow: -1rem 1rem 0px 0px var(--white-color);
+    border-radius: .2rem;
+}
+
+.btn:hover {
+    background-color: var(--black-color);
+    color: white;
+    transition: background-color .5s ease-in-out, color .5s ease-in-out, box-shadow .5s ease;
+    box-shadow: -5px 5px 10px 0px var(--black-color);
+}

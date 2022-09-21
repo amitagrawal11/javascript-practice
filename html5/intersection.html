@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection API Example</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container p {
+            padding: 20px;
+            border: 1px solid grey;
+            margin: 3rem 1rem;
+            background-color: white;
+        }
+
+        .container p.active {
+            background-color: slateblue;
+            ;
+        }
+
+        #intersector {
+            position: fixed;
+            top: 250px;
+            bottom: 250px;
+            left: 0px;
+            right: 0px;
+            background-color: rgba(1, 1, 1, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="intersector"></div>
+    <div class="container">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nulla veniam dolorum asperiores
+            consequuntur odit possimus nihil ratione a tenetur aliquam neque iste animi dolor recusandae esse error
+            natus deleniti?
+            Modi fugiat impedit laudantium tenetur doloremque consequatur totam iste! Quaerat, non saepe. Explicabo
+            delectus aliquid nemo tenetur est quibusdam commodi magnam, labore culpa iure itaque sequi enim. Voluptates,
+            quaerat alias.
+        </p>
+    </div>
+    <script>
+
+        window.addEventListener('DOMContentLoaded', function (e) {
+            const intersector = document.getElementById('intersector');
+            const observerOptions = {
+                root: null,
+                rootMargin: '-250px 0px',
+                threshold: 1
+            };
+            const observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    console.log('entry isIntersecting: ', entry.isIntersecting);
+                    entry.target.classList.toggle('active', entry.isIntersecting);
+                });
+            }, observerOptions);
+
+            const targetElements = document.querySelectorAll('.container p');
+
+            targetElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <style>
+        body {
+            background-color: teal;
+            color: white;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        input {
+            width: 50vw;
+            padding: 1rem 1.5rem;
+            border-radius: 3rem;
+            border: none;
+            margin-right: 10px;
+            font-size: inherit;
+        }
+
+        .shadow {
+            box-shadow: 2px 2px 3px 0px;
+        }
+
+        .btn-search {
+            font-size: 1.3rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 2rem;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .btn-search:hover {
+            filter: brightness(0.85);
+        }
+
+        .btn-sm {
+            padding: .8rem;
+            border-radius: 10px;
+            border: none;
+            background-color: teal;
+            color: white;
+        }
+
+        .todo-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul,
+        li {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+        li:last-of-type {
+            border-bottom: none;
+        }
+
+        .card {
+            color: black;
+            padding: 0px;
+            margin-top: 2rem;
+            width: 60vw;
+            border-radius: 1rem;
+            background-color: white;
+        }
+
+        .card__list {
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
+
+        @keyframes slideInBottom {
+            0% {
+                height: 0%;
+            }
+
+            100% {
+                height: 100%;
+            }
+        }
+
+        .card__item {
+            padding: 1rem;
+            border-bottom: 1px solid lightgray;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            animation: slideInBottom 2s ease-in-out forwards;
+        }
+
+        .card__item.show {
+            opacity: 1;
+        }
+
+        .card__item,
+        .card__item__label {
+            cursor: pointer;
+        }
+
+        .card__item__actions {
+            visibility: hidden;
+        }
+
+        .card__item:hover .card__item__actions {
+            visibility: visible;
+        }
+
+        /* Performance Issue with CLS - Layout Shift */
+        .card__list--empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8rem;
+            padding: 1rem;
+            color: gray;
+        }
+
+        .btn-delete {
+            margin-left: 10px;
+            background-color: tomato;
+        }
+
+        .btn-sm:hover {
+            filter: brightness(0.85);
+        }
+
+        .empty-box {
+            height: calc(100vh - 20vh);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form name="todoForm" id="todoForm" class="todoForm">
+            <input class="shadow" type="text" placeholder="type here..." />
+            <button class="btn-search shadow ">Add Todo</button>
+        </form>
+        <div class="empty-box">No todo found.</div>
+        <div class="card shadow">
+            <ul class="card__list"></ul>
+        </div>
+    </div>
+    <script>
+        let todoId = 0;
+        const form = document.getElementById('todoForm');
+        const deleteBtn = document.getElementById('deleteBtn');
+
+        // attach delete event
+        function deleteTodo(event) {
+            let todoId = event.target.id;
+            todoId = todoId.replace("todo-delete-", "");
+
+            const todoItem = document.getElementById('todo-' + todoId);
+            todoItem.remove();
+        }
+
+        function editTodo(event) {
+
+        }
+
+        /* Event Listeners */
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = document.querySelector("#todoForm>input");
+            const todoList = document.querySelector('ul.card__list');
+            const emptyBox = document.querySelector(".empty-box");
+
+            if (!input.value) {
+                return;
+            }
+
+            // Step 1: Create
+            const li = document.createElement('li');
+            li.setAttribute('id', 'todo-' + todoId);
+            li.classList.add("card__item");
+
+            // Step 2: 
+            const label = document.createElement('label');
+            label.classList.add("card__item_label");
+            label.innerText = input.value;
+
+            // Step: create buttons
+            // const editBtn = document.createElement('button');
+            // editBtn.classList.add("btn-sm");
+            // editBtn.innerText = "Edit";
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute("id", 'todo-delete-' + todoId++);
+            deleteBtn.classList.add("btn-sm", "btn-delete");
+            deleteBtn.innerText = "Delete";
+            deleteBtn.addEventListener("click", deleteTodo);
+
+            // Step : create actionsSection and attach buttons
+            const actionsSection = document.createElement('section');
+            actionsSection.classList.add('card__item__actions');
+            actionsSection.appendChild(deleteBtn);
+            // actionsSection.appendChild(editBtn);
+
+            // Step 3:
+            li.appendChild(label);
+            li.appendChild(actionsSection);
+            todoList.append(li);
+
+            setTimeout(() => {
+                li.classList.add("show");
+            }, 10)
+
+            // Step 4: check if list is empty
+            if (!todoList.length) {
+                emptyBox.style.display = 'none';
+            }
+
+            // Step 5: reset form fields
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>
